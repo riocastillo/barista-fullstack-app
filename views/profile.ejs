@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Barista App</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lacquer&family=Mrs+Sheppards&family=Pirata+One&family=Sedgwick+Ave+Display&family=Tourney:ital,wght@1,100;1,500&display=swap" rel="stylesheet">
+
+<style>
+  
+  body{
+    background: rgb(79, 62, 0);
+  }
+
+  h1{
+    font: 35px 'Tourney', cursive;
+    letter-spacing: 2px;
+    padding:2%;
+    color:white;
+    -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.568);
+  }
+
+  #pic{
+    width:85%;
+    border-radius: 200px;
+    box-shadow: 7px 7px 1px rgba(4, 4, 4, 0.281);
+    padding:2%;
+  }
+
+  .userInfo{
+    padding:2%;
+    width:30%;
+    text-align: left;
+    float:left;
+  }
+
+  .btn{
+    font: 25px 'Sedgwick Ave Display', cursive;
+    border-radius: 10px;
+    background: rgb(47, 42, 1);
+    color:white;
+    border:none;
+    letter-spacing: 1px;
+    box-shadow: 7px 7px 1px rgba(4, 4, 4, 0.281);
+    margin-bottom:8%;
+
+  }
+
+.titles{
+  font: 65px 'Sedgwick Ave Display', cursive;
+  color:white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.568);
+}
+
+.incomplete{
+  width: 69%;
+  float:right;
+  padding:2%;
+}
+
+.incomplete ul{
+  list-style-type: none;
+  color:white;
+  border-top:8px solid rgba(0, 0, 0, 0.329);
+  clear:both;
+}
+
+.incomplete li{
+  width:28%;
+  min-height:310px;
+  margin:2%;
+  float:left;
+  background:rgba(214, 199, 164, 0.387);
+  box-shadow: 10px 10px 1px rgba(4, 4, 4, 0.281);
+  overflow: scroll;
+}
+
+.complete{
+  width: 30%;
+}
+
+.complete .titles{
+  padding-left:4%;
+}
+
+#name{
+  font: 40px 'Mrs Sheppards', cursive;
+  color:black;
+  background:rgba(255, 213, 0, 0.623);
+  padding-right:15px;
+  padding-left:15px;
+  border-radius: 10px;
+}
+
+#order{
+  font: 30px 'Pirata One', cursive;
+  line-height: 35px;
+  text-align: center;
+  margin-top:5%;
+}
+
+.completeBtn{
+  background-image: url('orderup.png');
+  width:290px;
+  height:60px;
+  background-size: 100%;
+  background-color:rgba(28, 26, 0, 0.822);
+  border:none;
+}
+
+.completeBtn:active{
+  transform: scale(0.9);
+}
+
+.completedOrders{
+  border:1px solid black;
+  color:white;
+  font: 20px 'Tourney', cursive;
+  letter-spacing: 1px;
+  margin:1%;
+  list-style-type: none;
+  margin:3%;
+  float:left;
+  padding:10px;
+  border-bottom: 10px solid black;
+  margin-left:5%;
+  background-color:rgba(255, 255, 255, 0.086);
+  box-shadow: 5px 5px 6px rgba(4, 4, 4, 0.473);
+
+}
+
+.completedOrders:hover{
+  background-color:rgba(255, 205, 96, 0.127);
+}
+
+.deleteOrder{
+  height:80px;
+  float:left;
+  clear:both;
+  font-size:20px;
+  margin-right:5%;
+}
+
+.deleteOrder:hover{
+  transform: scale(1.1);
+  background-color:rgba(0, 0, 0, 0.75);
+  color:white;
+}
+
+#orderFor{
+  color:black;
+}
+
+#madeBy{
+  color:gold;
+}
+
+</style>
+  </head>
+  <body>
+
+    <section class="userInfo">
+      <img src="dude.png" id="pic">
+
+      <h1 id="helloUser">Welcome, <%= user.local.email %>!</h1>
+      <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </section>
+
+    <section class="incomplete">
+    <h3 class="titles">Orders</h3>
+    <ul class="orderList">
+      <% for(var i=0; i<incompleteOrders.length; i++) {%>
+        <li class="orders">
+          <span id="name">
+            order for:  <%= incompleteOrders[i].customerOrder.customerName %><br>
+          </span>
+          <span id="order">
+            <%= incompleteOrders[i].customerOrder.size %>
+            <%= incompleteOrders[i].customerOrder.temperature %>
+            <%= incompleteOrders[i].customerOrder.drink %> 
+            <%= incompleteOrders[i].customerOrder.roast %> roast
+            With: <%= incompleteOrders[i].customerOrder.custom.join(', ') %>
+            Special Instructions: <%= incompleteOrders[i].customerOrder.specialInstructions %>
+          </span>
+          <button class="completeBtn" onclick="completeOrder('<%= incompleteOrders[i]._id %>', '<%= user.local.email %>', '<%= incompleteOrders[i].customerOrder.customerName %>')"></button>
+        </li>
+        <% } %>
+    </ul>
+  </section>
+
+    <section class="complete">
+    <h2 class="titles">Completed Orders</h2>
+    <% for(var i=0; i<completedOrders.length; i++) {%>
+      <li class="completedOrders">
+        <button class="deleteOrder" onclick="deleteList('<%= completedOrders[i]._id %>')">clear</button>
+        <span id="orderFor">
+         order for: <%= completedOrders[i].customerOrder.customerName %>
+        </span>
+        <!-- <span>
+        -  <%= completedOrders[i].customerOrder.drink %> -
+        </span> -->
+        <!-- <span>
+          <%= completedOrders[i].completed %>
+        </span> -->
+        <span id="madeBy">
+         was completed by: <%= completedOrders[i].assigned %>
+        </span>
+      </li>
+      <% } %>
+    </section>
+
+  <script src="main.js"></script>
+
+</body>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <title>Barista App</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&display=swap" rel="stylesheet">
+    
+    <style>
+        .col-sm-6{
+            border:2px solid black;
+        }
+    
+        .container{
+            margin-top:5%;
+        }
+        body{
+            background-image: linear-gradient(to right, rgb(0, 97, 188), rgb(0, 132, 255));
+            color:white;
+            font-family: 'Zen Kurenaido', sans-serif;
+        }
+        
+    
+        h1{
+            font: 70px 'Zen Kurenaido', sans-serif;
+            -webkit-text-stroke-width: 6px;
+                -webkit-text-stroke-color: black;
+                text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);
+        }
+    
+        p{
+            font-size:25px;
+        }
+    
+        form{
+            font-size:40px;
+        }
+    
+        .col-sm-6{
+            background:white;
+            color:black;
+            box-shadow: 25px 25px 5px rgba(0, 0, 0, 0.541);
+            border:none;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+<div class="col-sm-6 col-sm-offset-3">
+
+    <h1><span class="fa fa-sign-in"></span> Signup</h1>
+
+    <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+    <% } %>
+
+    <!-- LOGIN FORM -->
+    <form action="/signup" method="post">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" name="email">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" name="password">
+        </div>
+
+        <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+    </form>
+
+    <hr>
+
+    <p>Already have an account? <a href="/login">Login</a></p>
+    <p>Or go <a href="/">home</a>.</p>
+
+</div>
+</div>
+</body>
+</html>

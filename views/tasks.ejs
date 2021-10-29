@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task manager</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&family=Courgette&family=Secular+One&display=swap" rel="stylesheet">
+</head>
+<section class="main">
+    <div class="container">
+        <div class="box">
+            <h1>Reminder:</h1>
+          <p>You have things to do</p>
+        </div>
+      </div>
+</section>
+<section class="tasksSection">
+    <p id="description">add more things to your plate</p>
+
+    <section id="inputFields">
+    <input placeholder="enter name" type="text" class="name" name="tasks">
+
+    <input placeholder="add a task" type="text" class="task" name="tasks">
+</section>
+    <button id="enter"></button>
+    <ul class="tasksList">
+        <% for(var i=0; i<tasks.length; i++) {%>
+            <li class="message">
+                <span id="name">
+                    <%=tasks[i].name%>
+                </span>
+                <br><br><br><span id="task">
+                    <%=tasks[i].taskInfo%>
+                </span>
+                <span id="id">
+                    <%=tasks[i]._id%>
+                </span>
+                <br><br><br><button class="delete" data-id= "<%=tasks[i]._id%>"></button>
+            </li>
+            <% } %>
+    </ul>
+</section>
+
+
+<script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>
