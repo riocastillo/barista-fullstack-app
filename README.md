@@ -1,4 +1,4 @@
-<img src = "cashier.png" width = 100%>
+<img src = "cashier-screen.png" width = 100%>
 <img src = "barista.png" width = 100%>
 
 ## Goal
