@@ -10,4 +10,4 @@ Made using CSS, Javascript, Node.js, JSON, Express, EJS, MongoDB, Mongoose, and 
 
 
 ## Lessons Learned
-Learned how to manage multiple users on the app. Was able to have the app speak "order for customer's name is ready, so that was really fun to learn too.
+Learned how to manage multiple users on the app. Was able to have the app speak "order for customer's name is ready, so that was really fun to learn too. Created two different cashier pages - one design geared towards more "professional" screens, and the other design geared towards kids, inspired by the practice of Montessori cooking for young kids. The kids design is included but is not the default of this project. I'd like to circle back and be able to have a "kids mode" or a "work mode."
