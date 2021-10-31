@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Barista App</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Pirata+One&family=Lacquer&family=Londrina+Solid:wght@900&display=swap"
+        rel="stylesheet">
+    
+</head>
+
+<style>
+    #coffeePic{
+        display:none;
+    }
+
+    body{
+        color:white;
+        background-color: rgb(8, 0, 30);
+    }
+
+    .buttons button{
+        font-size: 30px;
+        padding:10px;
+        color:white;
+       font: 34px 'Pirata One', cursive;
+       letter-spacing: 1px;
+       border-radius: 5px;
+    }
+
+    .buttons button:hover{
+        transform: scale(1.1);
+    }
+
+    .buttons button:active,
+    #enterOrder:active{
+        transform: scale(0.9);
+    }
+
+    .buttons{
+        float:right;
+        width:60%;
+        margin-top:-5%;
+    }
+
+    #size button{
+    background-color: rgb(121, 217, 255);
+    }
+
+    #roast button{
+    background-color: rgb(30, 131, 171);
+    }
+
+    #size,
+    #coffee button{
+        margin-bottom:1%;
+    }
+
+    #coffee button{
+        background-color: rgb(236, 93, 217);
+        width:47%;
+        margin-bottom:2.6%;
+        margin-right:2%;
+    }
+
+    #size button,
+    #roast button{
+        width:30.6%;
+        margin:auto;
+        margin-right:2%;
+        margin-bottom:.5%;
+    }
+
+    #coffee{
+        width:35%;
+        float:left;
+        margin-top:1.5%;
+    }
+
+    #tea{
+        width:15%;
+        float:left;
+        margin-top:1.5%;
+        margin-left:1%;
+        margin-right:1%;
+    }
+
+    #tea button{
+        background-color: rgb(121, 10, 129);
+        margin-bottom:6.5%;
+        width:100%;
+    }
+
+    #custom{
+        float:left;
+        width:45%;
+        margin-top:1.5%;
+    }
+
+    #custom button{
+        background-color: rgb(209, 159, 10);
+        margin-bottom:2%;
+        width:30%;
+        margin-left:2.5%;
+    }
+
+    .title{
+        width:35%;
+        float:left;
+        text-align: center;
+        margin-left:2%;
+
+    }
+
+    #welcome{
+        font: 50px 'Homemade Apple', cursive;
+        margin-bottom:0;
+        -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: white;
+            text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.705);
+
+    }
+
+    #cafe{
+        font: 60px 'Londrina Solid', cursive;
+        letter-spacing: 1px;
+        margin-top:-10%;
+        margin-bottom:3%;
+        -webkit-text-stroke-width: 3px;
+            -webkit-text-stroke-color: black;
+            text-shadow: 8px 8px 1px rgba(0, 0, 0, 0.705);
+    }
+
+    #enterOrder{
+        background: url('click.png');
+        width:230px;
+        height:130px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        border:none;
+    }
+
+    #enterOrder:hover{
+        transform: scale(1.1);
+    }
+
+    #buttonSec{
+        width:25%;
+        clear:both;
+        float:right;
+        padding:2%;
+    }
+
+    .orderUp{
+        border-right:5px solid rgba(255, 255, 255, 0.171);
+        width:33%;
+        float:left;
+        clear:both;
+        min-height: 550px;
+        margin:auto;
+        margin-left:2%;
+
+    }
+
+    .customerName, a {
+        font: 22px 'Lacquer', cursive;
+        padding:10px;
+        margin:0;
+        text-decoration: none;
+
+    }
+
+    #sum{
+        background-color:rgba(255, 255, 255, 0.712);
+        min-height:420px;
+        overflow: scroll;
+        color:black;
+        width:75%;
+        font:30px 'Lacquer', cursive;
+        letter-spacing: 2px;
+        padding:20px;
+    }
+a{
+    font-size:25px;
+    letter-spacing: 2px;
+    border-radius: 20px;
+    background-color:rgba(255, 141, 255, 0.148);
+}
+
+
+
+ 
+    /* family= Homemade Apple
+    family=Pirata One
+    family=Lacquer
+    family=Londrina Solid */
+
+</style>
+
+
+<body>
+   
+    <section class="title">
+        <section id="log">
+            <a href="/login" class="btn btn-default "><span class="fa fa-user "></span>Barista Login</a>
+    
+        </section>
+        <h1 id="welcome">Welcome to...</h1>
+        <h1 id="cafe">Cafe con Leche</h1>
+    </section>
+
+    <section id="main">
+        <section class="orderUp">
+            <img src='cafe.png' id="coffeePic"><br>
+            <!-- <a href="/signup" class="btn btn-default log"><span class="fa fa-user log"></span>Signup</a> -->
+            <input class="customerName" oninput="customerNameInput" placeholder="enter customer's name">
+            <!-- <input class="customerOrder" oninput="customerInstruction" placeholder="special instructions"> -->
+            <h4 class="thanks"></h4>
+            <section id="sum">
+                <p class="sum">
+                
+                </p>
+            </section>
+
+        </section>
+        <section class="buttons">
+
+            <section id="size">
+                <button onclick='clickButton(event)'>tall</button>
+                <button onclick='clickButton(event)'>grande</button>
+                <button onclick='clickButton(event)'>venti</button>
+            </section>
+            <section id="roast">
+                <button onclick='clickButton(event)'>light</button>
+                <button onclick='clickButton(event)'>medium</button>
+                <button onclick='clickButton(event)'>dark</button>
+            </section>
+            <section id="coffee">
+                <button onclick='clickButton(event)'>coffee</button>
+                <button onclick='clickButton(event)'>cold brew</button>
+                <button onclick='clickButton(event)'>latte</button>
+
+                <button onclick='clickButton(event)'>cappucino</button>
+                <button onclick='clickButton(event)'>frappucino</button>
+                <button onclick='clickButton(event)'>americano</button>
+                <button onclick='clickButton(event)'>espresso shot</button>
+                <button onclick='clickButton(event)'>irish coffee</button>
+
+
+                
+            </section>
+            <section id="tea">
+                <button onclick='clickButton(event)'>chai tea</button>
+                <button onclick='clickButton(event)'>green tea</button>
+                <button onclick='clickButton(event)'>black tea</button>
+                <button onclick='clickButton(event)'>other tea</button>
+            </section>
+          
+            <section id="custom">
+                <!-- <p id="customTitle"><span>free add ons</span>
+                specifics of the add ons, like what kind of milk, go in the instructions
+                </p> -->
+                <button onclick='clickButton(event)'>decaf</button>
+                <button onclick='clickButton(event)'>iced</button>
+                <button onclick='clickButton(event)'>hot</button>
+                <button onclick='clickButton(event)'>black</button>
+                <button onclick='clickButton(event)'>milk</button>
+                <button onclick='clickButton(event)'>cream</button>
+                <button onclick='clickButton(event)'>oatmilk</button>
+                <button onclick='clickButton(event)'>honey</button>
+                <button onclick='clickButton(event)'>stevia</button>
+                <button onclick='clickButton(event)'>reg sugar</button>
+                <button onclick='clickButton(event)'>dairy-free</button>
+                <button onclick='clickButton(event)'>add syrup</button>
+                
+            </section>
+            <section id="buttonSec">
+                <button class="submit" id="enterOrder" type=submit onclick="addOrder()"></button>
+    
+            </section>
+        </section>
+        
+
+    </section>
+
+</body>
+<script src="main.js"></script>
+
+
+</html>
